@@ -2,44 +2,84 @@ import { useContext, useState, useEffect } from "react";
 import { MatchContext } from "../context/MatchContext";
 
 function MatchCard({ match }) {
-  const { bets, addBet } = useContext(MatchContext);
+  const { bets, addBet } = useContext(MatchContext),
+    [clHT, setClHT] = useState("transparent"),
+    [dHT, setDHT] = useState("none"),
+    [clAT, setClAT] = useState("transparent"),
+    [dAT, setDAT] = useState("none");
 
-  function toBet(match_id, team_id){
+  function toBet(match_id, team_id) {
     var n = addBet(match_id, team_id);
   }
 
+  function selectTeam(i){
+    setClHT("transparent");
+    setDHT("none");
+    setClAT("transparent");
+    setDAT("none");
+    switch (i) {
+      case 1:
+        setClHT("#0b5e70");
+        setDHT("block");
+        break;
+      case 3:
+        setClAT("#236e7e");
+        setDAT("block");
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
-    <div className="bg-zinc-500 text-white rounded-md flex flex-row shadow-md sm:rounded-lg">
-      <div className="w-full text-center pt-2">
+    <div className="card__content">
+      <div
+        className="card__data"
+        style={{ backgroundColor: clHT }}
+        onClick={(ev) => {
+          selectTeam(1);
+          toBet(match.id, match.homeTeam.team_id);
+        }}
+      >
         <img
           src={match.homeTeam.img}
           alt=""
-          className="block ml-auto mr-auto"
+          className="card__data-img"
         />
         <h1>{match.homeTeam.name}</h1>
-        <input
-          name={match.id}
-          type="radio"
-          id={match.homeTeam.team_id}
-          onChange={() => {toBet(match.id, match.homeTeam.team_id)}}
-        />
+        <div className="btn__get-team" style={{ display: dHT }}>
+          🏈
+        </div>
       </div>
 
-      <h3 className="text-center font-bold pt-4">Vs</h3>
+      <div
+        className="card__rotate">
+        <div className="card__face card__front">
+          <h3>Vs</h3>
+        </div>
+        <div className="card__face card__back">
+          <h3>📅 {match.date} </h3>
+          <h3> {match.venue} </h3>
+        </div>
+      </div>
 
-      <div className="w-full text-center pt-2">
+      <div
+        className="card__data"
+        style={{ backgroundColor: clAT }}
+        onClick={(ev) => {
+          selectTeam(3);
+          toBet(match.id, match.awayTeam.team_id);
+        }}
+      >
         <img
           src={match.awayTeam.img}
           alt=""
-          className="block ml-auto mr-auto"
+          className="card__data-img"
         />
         <h1>{match.awayTeam.name}</h1>
-        <input
-          name={match.id}
-          type="radio"
-          id={match.awayTeam.team_id}
-          onChange={() => {toBet(match.id, match.awayTeam.team_id)}}
-        />
+        <div className="btn__get-team" style={{ display: dAT }}>
+          🏈
+        </div>
       </div>
     </div>
   );

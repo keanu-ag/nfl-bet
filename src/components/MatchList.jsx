@@ -1,25 +1,45 @@
 import { useContext, useEffect, useState } from "react";
 import { MatchContext } from "../context/MatchContext";
 import MatchCard from "./MatchCard";
-import * as Unicons from "@iconscout/react-unicons";
+import UilMessage from "@iconscout/react-unicons/icons/uil-message";
 import axios from "axios";
 
 function MatchList() {
-  const { matches, playing, bets, name } = useContext(MatchContext);
+  const { matches, playing, bets, name, changePlaying } =
+    useContext(MatchContext);
+  const [playerBets, setPlayerBets] = useState([]);
 
-  const [state, setState] = useState(true);
+  const [state, setState] = useState(true),
+    [loading, setLoading] = useState("none"),
+    [btnCont, setBtnCont] = useState("flex"),
+    [style, setStyle] = useState("none");
 
   const handleSubmit = async () => {
-    try {
-      const response = await axios({
-        url: "http://127.0.0.1:8000/create/bet",
-        method: "POST",
-        data: { bets, name },
-      });
+    if (bets.length !== 16) {
+      alert("Necesitas seleccionar un equipo por cada partido");
+    } else {
+      setBtnCont("none");
+      setLoading("block");
+      try {
+        const response = await axios({
+          url: "http://nfl-bet/create/bet",
+          method: "POST",
+          data: { bets, name },
+        });
 
-      console.log(reponse);
-    } catch (error) {
-      console.log(error);
+        const res = await axios.get("http://nfl-bet/bet/list/" + response.data);
+
+        let data = res.data;
+        setPlayerBets(data);
+        setStyle("block");
+
+        alert("Tus resultados de la [Semana 2] se guardaron correctamente.");
+        setBtnCont("flex");
+        setLoading("none");
+        changePlaying(true);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -32,54 +52,64 @@ function MatchList() {
   }
 
   return (
-    <div>
-      <h1 className="pb-1 font-bold ">Semana 1 de 18</h1>
-      <div className="flex gap-4">
-        <div className="grid grid-cols-4 gap-4 w-3/4">
-          {matches.map((match, index) => (
-            <MatchCard key={index} match={match} />
-          ))}
+    <div className="container grid">
+      <div className="home__list" id="quiniela">
+        <div>
+          <h1 className="home__list-title">Semana 2 de 18</h1>
         </div>
-        <div className="row-auto justify-center items-center w-1/4 max-h-20">
-          <button
-            disabled={state}
-            className="inline-flex bg-zinc-500 text-white hover:bg-zinc-700 rounded-md m-4 p-3 disabled:bg-zinc-800"
-            onClick={handleSubmit}
-          >
-            <Unicons.UilMessage />
-            Enviar Quiniela
-          </button>
+        <div className="home__list-content">
+          <div className="home__list-cards">
+            {matches.map((match, index) => (
+              <MatchCard key={index} match={match} />
+            ))}
+          </div>
+          <div className="home__list-cards__content">
+            <button
+              disabled={state}
+              className="home__button disabled:bg-transparent disabled:text-black"
+              onClick={handleSubmit}
+            >
+              <div style={{ display: btnCont }}>
+                <UilMessage /> Enviar Quiniela
+              </div>
+              <div className="loader" style={{ display: loading }}></div>
+            </button>
 
-          <div className="overflow-x-auto relative shadow-md sm:rounded-lg hidden">
-            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                <tr>
-                  <td className="py-3 px-6"> Semana 1 </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                  <div className="flex flex-wrap columns-4 justify-between">
-                    <td className="py-4 px-6">Team 1</td>
-                    <td className="py-4 px-6">Team 2</td>
-                    <td className="py-4 px-6">Team 3</td>
-                    <td className="py-4 px-6">Team 4</td>
-                    <td className="py-4 px-6">Team 5</td>
-                    <td className="py-4 px-6">Team 6</td>
-                    <td className="py-4 px-6">Team 7</td>
-                    <td className="py-4 px-6">Team 8</td>
-                    <td className="py-4 px-6">Team 9</td>
-                    <td className="py-4 px-6">Team 10</td>
-                    <td className="py-4 px-6">Team 11</td>
-                    <td className="py-4 px-6">Team 12</td>
-                    <td className="py-4 px-6">Team 13</td>
-                    <td className="py-4 px-6">Team 14</td>
-                    <td className="py-4 px-6">Team 15</td>
-                    <td className="py-4 px-6">Team 16</td>
+            {playerBets.length !== 0 ? (
+              <>
+                <div className="player__bets-title">
+                  <h3>Los equipos que elegiste:</h3>
+                </div>
+
+                <div className="players__bets" style={{ display: style }}>
+                  <h3 className="players__bets-player">
+                    {playerBets[0].player}
+                  </h3>
+                  <div className="players__bets-card">
+                    {playerBets.map((bet, index) =>
+                      index !== 0 ? (
+                        <div key={index} className="player__card">
+                          <div className="player__card-img">
+                            <img
+                              src={bet.img}
+                              alt=""
+                              className="players__bets-img"
+                            />
+                          </div>
+                          <div className="player__card-info">
+                            <span>{bet.name}</span>
+                          </div>
+                        </div>
+                      ) : (
+                        ""
+                      )
+                    )}
                   </div>
-                </tr>
-              </tbody>
-            </table>
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
