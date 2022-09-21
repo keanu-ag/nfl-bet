@@ -23,7 +23,7 @@ function Matches() {
   }); */
 
   return (
-    <section className="skills section" id="partidos">
+    <section className="partidos section" id="partidos">
       <h2 className="section__title">Partidos</h2>
       <span className="section__subtitle">NFL 2022</span>
 

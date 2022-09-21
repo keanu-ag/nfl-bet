@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from "react";
-import { MatchContext } from "../context/MatchContext";
+import { MatchContext } from "../../context/MatchContext";
 
 function MatchCard({ match }) {
   const { bets, addBet } = useContext(MatchContext),

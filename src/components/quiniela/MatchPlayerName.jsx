@@ -1,6 +1,6 @@
 import UilFootballAmerican from "@iconscout/react-unicons/icons/uil-football-american";
 import { useEffect, useState, useContext } from "react";
-import { MatchContext } from "../context/MatchContext";
+import { MatchContext } from "../../context/MatchContext";
 
 function MatchPlayerName() {
   const [state, setState] = useState(true),

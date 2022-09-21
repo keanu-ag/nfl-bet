@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { results } from "../data/week2";
+import { results } from "../../data/week2";
 import Select from "react-select";
 
 function Results() {
@@ -13,12 +13,12 @@ function Results() {
   const colourStyles = {
     menuList: (styles) => ({
       ...styles,
-      background: "#b6c1fc",
+      background: "#FFF",
     }),
     option: (styles, { isFocused, isSelected }) => ({
       ...styles,
       background: isFocused ? "#576EE0" : isSelected ? "#576EE0" : undefined,
-      color: "#FFF",
+      color: "black",
       zIndex: 1,
     }),
     menu: (base) => ({
@@ -54,12 +54,11 @@ function Results() {
   }, []);
 
   return (
-    <section className="home section" id="resultados">
-      <div className="home__container container grid">
+    <section className="resultados sections" id="resultados">
+    <h2 className="section__title">Resultados</h2>
+    <span className="section__subtitle">Semana 2</span>      
+      <div className="home__container grid">
         <div className="home__content grid">
-          <div className="home__title">
-            <h1>Resultados</h1>
-          </div>
           <div className="home__results">
             <div className="result__data">
               <div className="result__content">
@@ -72,6 +71,8 @@ function Results() {
                   onChange={(e) => {
                     if(e !== null){
                       handleChange(e.value);
+                    }else{
+                      setTeams([]);
                     }
                   }}
                 />

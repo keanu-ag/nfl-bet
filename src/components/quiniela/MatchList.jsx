@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { MatchContext } from "../context/MatchContext";
+import { MatchContext } from "../../context/MatchContext";
 import MatchCard from "./MatchCard";
 import UilMessage from "@iconscout/react-unicons/icons/uil-message";
 import axios from "axios";
@@ -33,7 +33,7 @@ function MatchList() {
         setPlayerBets(data);
         setStyle("block");
 
-        alert("Tus resultados de la [Semana 2] se guardaron correctamente.");
+        alert("Tus resultados de la [Semana 3] se guardaron correctamente.");
         setBtnCont("flex");
         setLoading("none");
         changePlaying(true);
@@ -55,7 +55,7 @@ function MatchList() {
     <div className="container grid">
       <div className="home__list" id="quiniela">
         <div>
-          <h1 className="home__list-title">Semana 2 de 18</h1>
+          <h1 className="home__list-title">Semana 3 de 18</h1>
         </div>
         <div className="home__list-content">
           <div className="home__list-cards">

@@ -1,3 +1,5 @@
+import UilMoon from "@iconscout/react-unicons/icons/uil-moon";
+
 function MatchHeader() {
   return (
     <header className="header" id="header">
@@ -34,9 +36,9 @@ function MatchHeader() {
             </li>
           </ul>
         </div>
-        <div className="nav__btns">
-          <i className="uil uil-moon change-theme" id="theme-button"></i>
-        </div>
+        {/* <div className="nav__btns">
+          <UilMoon className="uil change-theme" id="theme-button" />
+        </div> */}
       </nav>
     </header>
   );

@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
-import { week2 } from "../data/week2";
+import { week } from "../data/week3";
 
 export const MatchContext = createContext();
 
@@ -46,7 +46,7 @@ export function MatchContextProvider(props) {
   }
 
   useEffect(() => {
-    setMatches(week2);
+    setMatches(week);
   }, []);
 
   return (

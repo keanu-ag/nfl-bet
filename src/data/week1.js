@@ -1,4 +1,4 @@
-export const week1 = [
+export const week = [
   {
     id: 1,
     week: 1,

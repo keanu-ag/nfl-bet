@@ -1,11 +1,12 @@
 import React from "react";
 
-import MatchList from "./components/MatchList";
+import MatchList from "./components/quiniela/MatchList";
 import MatchHeader from "./components/MatchHeader";
-import MatchPlayerName from "./components/MatchPlayerName";
-import Bets from "./components/Bets";
-import Matches from "./components/Matches";
-import Results from './components/Results'
+import MatchPlayerName from "./components/quiniela/MatchPlayerName";
+import Bets from "./components/apuestas/Bets";
+import Matches from "./components/partidos/Matches";
+import Results from "./components/resultados/Results";
+import MatchFooter from "./components/MatchFooter";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Bets />
         <Results />
       </main>
+      <MatchFooter />
     </>
   );
 }
