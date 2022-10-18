@@ -20,13 +20,13 @@ function MatchHeader() {
               </a>
             </li>
             <li className="nav__item">
-              <a href="#partidos" className="nav__link">
-                <i className="uil uil-tag nav__icon"></i>Partidos
+              <a href="#apuestas" className="nav__link">
+                <i className="uil uil-user nav__icon"></i>Mis apuestas
               </a>
             </li>
             <li className="nav__item">
-              <a href="#apuestas" className="nav__link">
-                <i className="uil uil-user nav__icon"></i>Mis apuestas
+              <a href="#partidos" className="nav__link">
+                <i className="uil uil-tag nav__icon"></i>Partidos
               </a>
             </li>
             <li className="nav__item">

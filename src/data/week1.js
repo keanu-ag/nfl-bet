@@ -2,8 +2,8 @@ export const week = [
   {
     id: 1,
     week: 1,
-    date: "2022-09-09",
-    venue: "SoFi Stadium",
+    date: "2022-09-08",
+    venue: "Jue",
     awayTeam: {
       team_id: 1,
       name: "Bills",
@@ -21,7 +21,7 @@ export const week = [
     id: 2,
     week: 1,
     date: "2022-09-11",
-    venue: "Mercedes-Benz Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 3,
       name: "Saints",
@@ -39,7 +39,7 @@ export const week = [
     id: 3,
     week: 1,
     date: "2022-09-11",
-    venue: "Soldier Field",
+    venue: "Dom",
     awayTeam: {
       team_id: 5,
       name: "49ers",
@@ -57,7 +57,7 @@ export const week = [
     id: 4,
     week: 1,
     date: "2022-09-11",
-    venue: "Paycor Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 7,
       name: "Steelers",
@@ -75,7 +75,7 @@ export const week = [
     id: 5,
     week: 1,
     date: "2022-09-11",
-    venue: "Ford Field",
+    venue: "Dom",
     awayTeam: {
       team_id: 9,
       name: "Eagles",
@@ -93,7 +93,7 @@ export const week = [
     id: 6,
     week: 1,
     date: "2022-09-11",
-    venue: "Hard Rock Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 11,
       name: "Patriots",
@@ -111,7 +111,7 @@ export const week = [
     id: 7,
     week: 1,
     date: "2022-09-11",
-    venue: "MetLife Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 13,
       name: "Ravens",
@@ -129,7 +129,7 @@ export const week = [
     id: 8,
     week: 1,
     date: "2022-09-11",
-    venue: "FedExField",
+    venue: "Dom",
     awayTeam: {
       team_id: 15,
       name: "Jaguars",
@@ -147,7 +147,7 @@ export const week = [
     id: 9,
     week: 1,
     date: "2022-09-11",
-    venue: "Bank of America Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 17,
       name: "Browns",
@@ -165,7 +165,7 @@ export const week = [
     id: 10,
     week: 1,
     date: "2022-09-11",
-    venue: "NRG Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 19,
       name: "Colts",
@@ -183,7 +183,7 @@ export const week = [
     id: 11,
     week: 1,
     date: "2022-09-11",
-    venue: "Nissan Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 21,
       name: "Giants",
@@ -201,7 +201,7 @@ export const week = [
     id: 12,
     week: 1,
     date: "2022-09-11",
-    venue: "U.S. Bank Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 23,
       name: "Packers",
@@ -219,7 +219,7 @@ export const week = [
     id: 13,
     week: 1,
     date: "2022-09-11",
-    venue: "State Farm Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 25,
       name: "Chiefs",
@@ -237,7 +237,7 @@ export const week = [
     id: 14,
     week: 1,
     date: "2022-09-11",
-    venue: "SoFi Stadium",
+    venue: "Dom",
     awayTeam: {
       team_id: 27,
       name: "Raiders",
@@ -254,8 +254,8 @@ export const week = [
   {
     id: 15,
     week: 1,
-    date: "2022-09-12",
-    venue: "AT&T Stadium",
+    date: "2022-09-11",
+    venue: "Dom",
     awayTeam: {
       team_id: 29,
       name: "Buccaneers",
@@ -272,8 +272,8 @@ export const week = [
   {
     id: 16,
     week: 1,
-    date: "2022-09-13",
-    venue: "Lumen Field",
+    date: "2022-09-12",
+    venue: "Lun",
     awayTeam: {
       team_id: 31,
       name: "Broncos",

@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import { useState, useEffect } from "react";
-import { week } from "../data/week3";
+import { week } from "../data/week6";
 
 export const MatchContext = createContext();
 

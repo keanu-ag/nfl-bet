@@ -3,6 +3,8 @@ import { MatchContext } from "../../context/MatchContext";
 import MatchCard from "./MatchCard";
 import UilMessage from "@iconscout/react-unicons/icons/uil-message";
 import axios from "axios";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 function MatchList() {
   const { matches, playing, bets, name, changePlaying } =
@@ -14,26 +16,42 @@ function MatchList() {
     [btnCont, setBtnCont] = useState("flex"),
     [style, setStyle] = useState("none");
 
+  const MySwal = withReactContent(Swal);
+
   const handleSubmit = async () => {
-    if (bets.length !== 16) {
-      alert("Necesitas seleccionar un equipo por cada partido");
+    if (bets.length !== 14) {
+      MySwal.fire({
+        position: "top-end",
+        title: "Error!",
+        text: "Debes completar los partidos",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     } else {
       setBtnCont("none");
       setLoading("block");
       try {
         const response = await axios({
-          url: "http://nfl-bet/create/bet",
+          url: "/create/bet",
           method: "POST",
           data: { bets, name },
         });
 
-        const res = await axios.get("http://nfl-bet/bet/list/" + response.data);
+        const res = await axios.get("/bet/list/" + response.data);
 
         let data = res.data;
         setPlayerBets(data);
         setStyle("block");
 
-        alert("Tus resultados de la [Semana 3] se guardaron correctamente.");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Bien!",
+          text: "Tus resultados de la [Semana 6] se guardaron correctamente.",
+          showConfirmButton: false,
+          timer: 2400,
+        });
         setBtnCont("flex");
         setLoading("none");
         changePlaying(true);
@@ -55,7 +73,7 @@ function MatchList() {
     <div className="container grid">
       <div className="home__list" id="quiniela">
         <div>
-          <h1 className="home__list-title">Semana 3 de 18</h1>
+          <h1 className="home__list-title">Semana 6 de 18</h1>
         </div>
         <div className="home__list-content">
           <div className="home__list-cards">

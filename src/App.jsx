@@ -14,9 +14,9 @@ function App() {
       <MatchHeader />
       <main className="main">
         <MatchPlayerName />
-        <MatchList />
-        <Matches />
+        
         <Bets />
+        <Matches />
         <Results />
       </main>
       <MatchFooter />

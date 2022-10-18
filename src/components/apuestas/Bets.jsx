@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Carousel from "react-bootstrap/Carousel";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Bets() {
   const [playerBets, setPlayerBets] = useState([]);
@@ -7,7 +9,7 @@ function Bets() {
 
   async function handleStart() {
     try {
-      const res = await axios.get("http://nfl-bet/my/bets");
+      const res = await axios.get("/my/bets");
       let data = res.data;
       setPlayerBets(data);
     } catch (error) {
@@ -22,8 +24,7 @@ function Bets() {
   return (
     <section className="apuestas section" id="apuestas">
       <h2 className="section__title">Apuestas</h2>
-      <span className="section__subtitle">Semana 3</span>
-
+      <span className="section__subtitle">Semana 6</span>
       {playerBets.length !== 0 ? (
         <div className="bets__content">
           <div className="bets__container">

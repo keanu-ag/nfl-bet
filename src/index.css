@@ -187,6 +187,7 @@ img {
     left: 0;
     z-index: var(--z-fixed);
     background-color: var(--body-color);
+    box-shadow: 0 -1px 4px rgba(0, 0, 0, .55);
 }
 
 /*==================== NAV ====================*/
@@ -662,6 +663,132 @@ img {
     transform: rotate(-180deg);
 }
 
+/*==================== PARTIDOS ====================*/
+
+.match__content {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+.match__card {
+    display: block;
+    margin: .75rem;
+}
+
+.match__table {
+    min-height: 108px;
+    width: 100%;
+    background: #FFF;
+    border-radius: 40px;
+}
+
+.match__table tbody {
+    border-radius: 40px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.match__table-header {
+    height: 16px;
+}
+
+.match__table-top {
+    padding: 0 24px;
+}
+
+.match__table-bar {
+    background-color: #ecedef;
+    padding: 1px;
+}
+
+.match__table-date {
+    font-size: 14px;
+    color: #202124;
+    padding: 0;
+    position: relative;
+    text-align: center;
+}
+
+.match__content-date {
+    line-height: 1.4;
+}
+
+.match__data-date {
+    margin: 0px;
+    padding: 0px 16px;
+}
+
+.match__text-date {
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #202124;
+}
+
+.match__text-time {
+    padding: 0 16px;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #202124;
+}
+
+.match__content-teams {
+    height: 32px;
+}
+
+.match__data-img {
+    width: 64px;
+    padding-left: 24px;
+}
+
+.match__img {
+    width: 24px;
+    height: 24px;
+}
+
+.match__data-name {
+    padding: 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.match__score {
+    padding-left: 8px;
+    text-align: right;
+    float: right;
+}
+
+.match__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #202124;
+}
+
+.match__content-separator {
+    padding-left: 6px;
+    width: 6px;
+}
+
+.match__content-icon {
+    padding-left: 6px;
+    width: 6px;
+}
+
+.match__icon {
+    margin-bottom: 1.5px;
+}
+
+.match__content-footer {
+    height: 24px;
+}
+
+
+
 /*==================== RESULTS ====================*/
 
 .result__data {
@@ -898,7 +1025,7 @@ img {
     }
 
     .section {
-        padding: 6rem 0 1rem;
+        padding: 4rem 0 1rem;
     }
 
     .section__subtitle {

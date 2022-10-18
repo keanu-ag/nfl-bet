@@ -1,6 +1,7 @@
 import UilFootballAmerican from "@iconscout/react-unicons/icons/uil-football-american";
 import { useEffect, useState, useContext } from "react";
 import { MatchContext } from "../../context/MatchContext";
+import MatchList from "./MatchList";
 
 function MatchPlayerName() {
   const [state, setState] = useState(true),
@@ -34,7 +35,7 @@ function MatchPlayerName() {
               }}
             />
             <button
-              disabled={state}
+              disabled={true}
               className="home__button disabled:bg-transparent disabled:text-black"
               onClick={() => {
                 if (name.length !== 0) {
@@ -52,6 +53,7 @@ function MatchPlayerName() {
           </div>
         </div>
       </div>
+      <MatchList />
     </section>
   );
 }
